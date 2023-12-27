@@ -1,0 +1,142 @@
+<!DOCTYPE html><html><head>
+<meta charset="utf-8">
+<title>计算器</title>
+<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+<style>
+body { /*背景*/
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-user-select: none;
+  -moz-user-focus: none;
+  -moz-user-select: none;
+  font-family: serif;
+  background-image: url("http://shp.qpic.cn/collector/1491192079/88db27f2-263b-4a9c-a0ed-98ea211a3a44/0");
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+
+a{
+  text-decoration: none;
+  color: #FFCDD2;
+  font-size: 15px;
+}
+
+a:active { 
+  color: #fff;
+}
+
+.container { /*计算机板*/
+  margin: auto;
+  margin-top: 100px;
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  object-fit: fill;
+  box-shadow: 0px 0px 10px #ccc;
+  border-radius:5px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.output { /*输入或者按下的内容字体*/
+  font-size: 2em;
+  text-align: right;
+  padding: 10px;
+  background-color: rgba(2, 2, 2, 0.4);
+  border: 1px solid #ccc;
+  overflow:auto;
+  border-radius:5px;
+  color:#fff;
+}
+
+.button { /*正常按钮*/
+  font-size: 1.5em;
+  margin: 5px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: rgba(2, 2, 2, 0.4);
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:active{ /*鼠标碰到按钮时按钮变色*/
+  background-color: #999;
+}
+
+.clear { /*清屏*/
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.equals { /*等于号颜色*/
+  background-color: rgba(2, 2, 2, 0.4);
+}
+
+.fhjm{
+  width: 300px;
+  text-align: center;
+  margin-top: 15px;
+  color: #999;
+  text-shadow: 0px 1px 1px #000;
+  font-weight: bold;
+  letter-spacing: 2px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #fff;
+  padding: 5px;
+  font-size:15px;
+}
+</style>
+</head><body>
+<div class="container">
+  <div class="output" id="output">0</div>
+  <button class="button" onclick="clearOutput()" id="clear">C</button>
+  <button class="button" onclick="appendToOutput('%')">%</button>
+  <button class="button" onclick="appendToOutput('/')">/</button>
+  <button class="button" onclick="appendToOutput('*')">*</button>
+  <button class="button" onclick="appendToOutput('7')">7</button>
+  <button class="button" onclick="appendToOutput('8')">8</button>
+  <button class="button" onclick="appendToOutput('9')">9</button>
+  <button class="button" onclick="appendToOutput('-')">-</button>
+  <button class="button" onclick="appendToOutput('4')">4</button>
+  <button class="button" onclick="appendToOutput('5')">5</button>
+  <button class="button" onclick="appendToOutput('6')">6</button>
+  <button class="button" onclick="appendToOutput('+')">+</button>
+  <button class="button" onclick="appendToOutput('1')">1</button>
+  <button class="button" onclick="appendToOutput('2')">2</button>
+  <button class="button" onclick="appendToOutput('3')">3</button>
+  <button class="button equals" onclick="calculate()">=</button>
+  <button class="button" onclick="appendToOutput('0')">0</button>
+  <button class="button" onclick="appendToOutput('.')">.</button>
+  <button class="button"><a href="#">返</a></button>
+</div>
+
+<div class="fhjm">§ 无名传世阁 2023</div>
+<!--内容的结束-->
+<div class="no6"></div>
+</body>
+<script src="./js/yinghua.js"></script>
+<script type="text/javascript">
+let output = document.getElementById("output"); // 输入内容
+
+function appendToOutput(value) {
+  if (output.innerHTML === "0") {
+    output.innerHTML = value; // 直接显示
+  } else {
+    output.innerHTML += value; // 列出一个算式
+  }
+}
+
+function clearOutput() { // 清零
+  output.innerHTML = "0";
+}
+
+function calculate() { // 计算
+  output.innerHTML = eval(output.innerHTML);
+}
+
+</script>
+</html>
